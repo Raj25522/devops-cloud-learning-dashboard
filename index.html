@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DevOps & Cloud Learning Dashboard</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="bg bg1"></div>
+<div class="bg bg2"></div>
+
+<div class="container">
+
+    <header>
+        <h1>🚀 DevOps & Cloud Learning Dashboard</h1>
+        <p>Road to AWS + DevOps Engineer</p>
+    </header>
+
+    <section class="stats-grid">
+
+        <div class="card stat-card">
+            <h3>AWS</h3>
+            <div class="progress">
+                <div class="fill aws"></div>
+            </div>
+            <span>70%</span>
+        </div>
+
+        <div class="card stat-card">
+            <h3>Docker</h3>
+            <div class="progress">
+                <div class="fill docker"></div>
+            </div>
+            <span>80%</span>
+        </div>
+
+        <div class="card stat-card">
+            <h3>Kubernetes</h3>
+            <div class="progress">
+                <div class="fill k8s"></div>
+            </div>
+            <span>55%</span>
+        </div>
+
+        <div class="card stat-card">
+            <h3>Terraform</h3>
+            <div class="progress">
+                <div class="fill terraform"></div>
+            </div>
+            <span>40%</span>
+        </div>
+
+    </section>
+
+    <section class="dashboard">
+
+        <div class="card tasks">
+
+            <h2>Today's Learning Tasks</h2>
+
+            <div class="task-input">
+                <input
+                    type="text"
+                    id="taskInput"
+                    placeholder="Add a learning task..."
+                >
+                <button id="addBtn">Add</button>
+            </div>
+
+            <ul id="taskList"></ul>
+
+        </div>
+
+        <div class="card roadmap">
+
+            <h2>Learning Roadmap</h2>
+
+            <div class="roadmap-item">
+                ☁️ AWS
+            </div>
+
+            <div class="roadmap-item">
+                🐳 Docker
+            </div>
+
+            <div class="roadmap-item">
+                ☸️ Kubernetes
+            </div>
+
+            <div class="roadmap-item">
+                🌍 Terraform
+            </div>
+
+            <div class="roadmap-item">
+                ⚙️ CI/CD
+            </div>
+
+            <div class="roadmap-item">
+                📦 Helm
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
