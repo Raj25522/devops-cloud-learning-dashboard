@@ -214,3 +214,79 @@ header h1{
 }
 
 }
+.achievement-banner{
+    margin-top:20px;
+    display:inline-block;
+    padding:12px 24px;
+    border-radius:999px;
+    font-weight:600;
+
+    background:linear-gradient(
+        135deg,
+        #8b5cf6,
+        #06b6d4
+    );
+
+    box-shadow:0 8px 20px rgba(0,0,0,.3);
+}
+
+.hero-stats{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    margin-top:30px;
+    flex-wrap:wrap;
+}
+
+.hero-card{
+    width:180px;
+    padding:20px;
+
+    background:rgba(255,255,255,0.08);
+
+    backdrop-filter:blur(15px);
+
+    border-radius:18px;
+
+    border:1px solid rgba(255,255,255,0.1);
+
+    transition:.3s;
+}
+
+.hero-card:hover{
+    transform:translateY(-6px);
+}
+
+.hero-card h2{
+    font-size:2rem;
+    margin-bottom:8px;
+}
+
+.current-focus{
+    margin-top:35px;
+
+    background:rgba(255,255,255,0.08);
+
+    padding:25px;
+
+    border-radius:18px;
+
+    text-align:left;
+}
+
+.current-focus h2{
+    margin-bottom:15px;
+}
+
+.current-focus ul{
+    list-style:none;
+}
+
+.current-focus li{
+    padding:10px 0;
+    border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+.current-focus li:last-child{
+    border-bottom:none;
+}
