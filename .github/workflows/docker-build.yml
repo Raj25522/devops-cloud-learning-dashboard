@@ -1,18 +1,53 @@
-- name: Deploy to EC2
-  uses: appleboy/ssh-action@v1.0.3
-  with:
-    host: ${{ secrets.EC2_HOST }}
-    username: ${{ secrets.EC2_USER }}
-    key: ${{ secrets.EC2_SSH_KEY }}
+name: CI-CD Pipeline
 
-    script: |
-      docker pull raj25522/devops-dashboard:latest
+on:
+  push:
+    branches:
+      - main
 
-      docker stop dashboard-latest || true
-      docker rm dashboard-latest || true
+jobs:
 
-      docker run -d \
-        --restart unless-stopped \
-        --name dashboard-latest \
-        -p 8080:80 \
-        raj25522/devops-dashboard:latest
+  build-and-push:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Source
+        uses: actions/checkout@v4
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Build Docker Image
+        run: |
+          docker build -t raj25522/devops-dashboard:latest .
+
+      - name: Push Docker Image
+        run: |
+          docker push raj25522/devops-dashboard:latest
+
+  deploy:
+    needs: build-and-push
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy to EC2
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+
+          script: |
+            docker pull raj25522/devops-dashboard:latest
+
+            docker stop dashboard-latest || true
+            docker rm dashboard-latest || true
+
+            docker run -d \
+              --restart unless-stopped \
+              --name dashboard-latest \
+              -p 8080:80 \
+              raj25522/devops-dashboard:latest
