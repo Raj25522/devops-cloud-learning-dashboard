@@ -290,3 +290,30 @@ header h1{
 .current-focus li:last-child{
     border-bottom:none;
 }
+.achievement-section,
+.infra-status{
+    margin-top:40px;
+}
+
+.achievement-grid,
+.status-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.achievement-card,
+.status-card{
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(20px);
+    border:1px solid rgba(255,255,255,0.12);
+    border-radius:20px;
+    padding:25px;
+    text-align:center;
+    transition:.3s;
+}
+
+.achievement-card:hover,
+.status-card:hover{
+    transform:translateY(-6px);
+}
