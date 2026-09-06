@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+
+metadata:
+  name: devops-dashboard
+  namespace: argocd
+
+spec:
+  project: default
+
+  source:
+    repoURL: https://github.com/Raj25522/devops-cloud-learning-dashboard.git
+    targetRevision: argocd-migration
+    path: k8s
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: devops-dashboard
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+
+    syncOptions:
+      - CreateNamespace=true
