@@ -317,3 +317,199 @@ header h1{
 .status-card:hover{
     transform:translateY(-6px);
 }
+/* ==========================
+   ABOUT SECTION
+========================== */
+
+.current-focus p{
+    color:#e2e8f0;
+    line-height:1.8;
+    font-size:1rem;
+}
+
+/* ==========================
+   SKILLS SECTION
+========================== */
+
+.skills-section{
+    margin-top:40px;
+    margin-bottom:40px;
+}
+
+.skills-section h2{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.skills-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+    gap:18px;
+}
+
+.skill-card{
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(15px);
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:18px;
+    padding:18px;
+    text-align:center;
+    font-weight:600;
+    transition:0.3s;
+    cursor:pointer;
+}
+
+.skill-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 10px 20px rgba(0,0,0,.3);
+}
+
+/* ==========================
+   CERTIFICATION & STATUS
+========================== */
+
+.achievement-section{
+    margin-top:40px;
+}
+
+.achievement-section h2{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.achievement-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.achievement-card{
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(20px);
+    border:1px solid rgba(255,255,255,0.12);
+    border-radius:20px;
+    padding:25px;
+    text-align:center;
+    transition:.3s;
+}
+
+.achievement-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 10px 25px rgba(0,0,0,.3);
+}
+
+.achievement-card h3{
+    margin-bottom:10px;
+    color:#ffffff;
+}
+
+.achievement-card p{
+    color:#cbd5e1;
+}
+
+/* ==========================
+   INFRASTRUCTURE STATUS
+========================== */
+
+.infra-status{
+    margin-top:40px;
+}
+
+.infra-status h2{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.status-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.status-card{
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(20px);
+    border:1px solid rgba(255,255,255,0.12);
+    border-radius:18px;
+    padding:20px;
+    text-align:center;
+    transition:.3s;
+    font-weight:600;
+}
+
+.status-card:hover{
+    transform:translateY(-5px);
+}
+
+/* ==========================
+   STAT CARDS
+========================== */
+
+.stat-card{
+    text-align:center;
+}
+
+.stat-card h3{
+    margin-bottom:10px;
+}
+
+.stat-card span{
+    font-weight:600;
+    color:#e2e8f0;
+}
+
+/* ==========================
+   SCROLLBAR
+========================== */
+
+::-webkit-scrollbar{
+    width:10px;
+}
+
+::-webkit-scrollbar-track{
+    background:#0f172a;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#8b5cf6;
+    border-radius:10px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background:#06b6d4;
+}
+
+/* ==========================
+   RESPONSIVE DESIGN
+========================== */
+
+@media(max-width:768px){
+
+    .hero-card{
+        width:100%;
+    }
+
+    .skills-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .achievement-grid{
+        grid-template-columns:1fr;
+    }
+
+    .status-grid{
+        grid-template-columns:1fr;
+    }
+
+    .task-input{
+        flex-direction:column;
+    }
+
+    button{
+        width:100%;
+    }
+
+    .container{
+        width:95%;
+    }
+}
