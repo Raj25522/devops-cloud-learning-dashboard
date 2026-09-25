@@ -1,12 +1,11 @@
-name: CI-CD Pipeline
+name: CI Pipeline
 
 on:
   push:
     branches:
-      - main
+      - argocd-migration
 
 jobs:
-
   build-and-push:
     runs-on: ubuntu-latest
 
@@ -27,27 +26,3 @@ jobs:
       - name: Push Docker Image
         run: |
           docker push raj25522/devops-dashboard:latest
-
-  deploy:
-    needs: build-and-push
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Deploy to EC2
-        uses: appleboy/ssh-action@v1.0.3
-        with:
-          host: ${{ secrets.EC2_HOST }}
-          username: ${{ secrets.EC2_USER }}
-          key: ${{ secrets.EC2_SSH_KEY }}
-
-          script: |
-            docker pull raj25522/devops-dashboard:latest
-
-            docker stop dashboard-latest || true
-            docker rm dashboard-latest || true
-
-            docker run -d \
-              --restart unless-stopped \
-              --name dashboard-latest \
-              -p 8080:80 \
-              raj25522/devops-dashboard:latest
